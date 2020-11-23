@@ -1,4 +1,5 @@
 import Container from "../components/Container";
+import SearchResults from "../components/SearchResults"
 // import Header from "./components/Header";
 import API from "../utils/API"
 import { useEffect, useState } from "react";
@@ -6,7 +7,7 @@ import SearchForm from "../components/SearchForm";
 
 function Home () {
     const [search, setSearch] = useState("RandomUser");
-    // const [image, setImage] = useState("");
+    const [image, setImage] = useState("");
     // const [name, setName] = useState("");
     // const [phone, setPhone ] = useState("");
     // const [email, setEmail] = useState("");
@@ -27,6 +28,7 @@ function Home () {
                 throw new Error(res.data.message);
             }
             console.log(res);
+            setImage(res.data.results.picture.thumbnail.url)
    })
 //    .catch (err => setError(err));
 }, [search]);
@@ -38,14 +40,17 @@ const handleInputChange = event => {
 
 return (
     <div>
+        Home
         <Container style={{ minHeight: "100vh" }}>
         <h1 className="text-center">Search Employee Info</h1>
         <SearchForm
             handleInputChange = {handleInputChange}
             results={search}
             />
-        Home
-        <table>
+        <SearchResults 
+            image={image} 
+            />
+        {/* <table>
             <thead>
                 <tr>
                     <th>Image</th>
@@ -57,14 +62,23 @@ return (
             </thead>
             <tbody>
                 <tr>
-                    <td>andy</td>
-                    <td>andy</td>
-                    <td>andy</td>
-                    <td>andy</td>
-                    <td>andy</td>
+                    <td 
+                    className="emp-list">
+                        {results.map(results => (
+                            <li className="emp-list-img" key={results.id}>
+                                <img alt={results.Title} className="img.fluid" 
+                                src={results.picture.thumbnail.url} />
+                            </li>
+                        ))}
+                    </td>
+                    <td>image</td>
+                    <td>name</td>
+                    <td>phone</td>
+                    <td>email</td>
+                    <td>DOB</td>
                 </tr>
             </tbody>
-        </table>
+        </table> */}
         </Container>
     </div>
 );

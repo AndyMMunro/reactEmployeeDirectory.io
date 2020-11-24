@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Wrapper from "./components/Wrapper"
 // import Footer from "./components/Footer"
 
+
 function EmployeeDir() {
   return (
     <Router>

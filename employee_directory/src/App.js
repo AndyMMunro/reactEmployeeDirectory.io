@@ -8,11 +8,9 @@ function EmployeeDir() {
   return (
     <Router>
       <div>
-        {/* <Header/> */}
           <Wrapper>
             <Route exact path="/" component={Home} />
           </Wrapper>
-        {/* <Footer /> */}
       </div>
     </Router>
   );

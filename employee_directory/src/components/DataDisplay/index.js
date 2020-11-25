@@ -3,7 +3,7 @@ import Moment from 'react-moment';
 import "./style.css";
 
 function DataDisplay(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <div>
       <table className="emp-list" >
@@ -17,21 +17,21 @@ function DataDisplay(props) {
                 </tr>
             </thead>
             <tbody>
-            {props.results.map(results => (
+            {props.results.map((results, index) => (
                 <tr className="employee-data" >
-                    <td className="emp-list-img" key={results.id}>
+                    <td className="emp-list-img" key={results.index}>
                       <img alt={results.title} className="img.fluid" src={results.picture.medium} />
                     </td>    
-                    <td className="emp-list-name" key={results.id}>
+                    <td className="emp-list-name" key={results.index}>
                       <p>{results.name.first} {results.name.last}</p>
                     </td>
-                    <td className="emp-list-phone" key={results.id}>
+                    <td className="emp-list-phone" key={results.index}>
                       <p>{results.cell}</p>
                     </td> 
-                    <td className="emp-list-email" key={results.id}>
+                    <td className="emp-list-email" key={results.index}>
                       <p>{results.email}</p>
                     </td> 
-                    <td className="emp-list-bday" key={results.id}>
+                    <td className="emp-list-bday" key={results.index}>
                       <Moment date={results.dob.date} format= "MM/DD/YYYY"/>
                     </td>                                       
                 </tr>
@@ -42,8 +42,7 @@ function DataDisplay(props) {
     );
   }
   
-  // Build a loop that cycles through all the data then grabs specific 
-  // and lays them out in a column format
+
 
 
 export default DataDisplay;

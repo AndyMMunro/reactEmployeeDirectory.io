@@ -8,60 +8,66 @@ import SearchForm from "../components/SearchForm";
 
 function Home () {
     const [EmployeeData, setEmployeeData] = useState([]);
-    const [search, setSearch] = useState("randomuser");
-    // const [image, setImage] = useState([]);
-    // const [lastName, setNameLast] = useState([]);
-    // const [firstName, setNameFirst] = useState([]);
-    const [phone, setPhone ] = useState([]);
-    // const [email, setEmail] = useState([]);
-    // const [dob, setDob] = useState([]);
+    const [search, setSearch] = useState("");
     const [error, setError] = useState("");
-    const [displaydata, setDisplayData] = useState([]);
+    const [DisplayData, setDisplayData] = useState([]);
+
    useEffect(() => {
+    //    if nothing in search parameter then populate all users
        if (!search) {
-           return;
-       }
+           return API.getUsers()
+           .then(res => {
 
-    API.getUsers()
-        .then(res => {
-            console.log(res);
-            if (res.data.length === 0) {
-                throw new Error("please enter a parameter");
-            }
-            if (res.data.status === "error"){
-                throw new Error(res.data.message);
-            }
-            setEmployeeData(res.data.results);
-            setDisplayData(res.data.results)
-            // setNameLast(res.data.results.name.last)
-            // setNameFirst(res.data.results.name.first)
-            setPhone(res.data.results.cell)
-            // setEmail(res.data.results.email)
-            // setDob(res.data.results.dob)
-            console.log(phone);
-            // console.log(email);
+               console.log(res);
 
-
-   })
-   .catch (error => setError(error));
-}, [search]);
+               if (res.data.length === 0) {
+                   throw new Error("please enter a parameter");
+                }
+                if (res.data.status === "error"){
+                    throw new Error(res.data.message);
+                }
+                setEmployeeData(res.data.results);
+                setDisplayData(res.data.results)
+            })
+            .catch (error => setError(error));
+        }else{
+            // if there is input in the search bar trigger employee search
+            EmployeeSearch(search)
+        }
+        // searches as you enter letters or numbers into search parameter.
+        }, [search]);
 
 const handleInputChange = event => {
     event.preventDefault()
     setSearch(event.target.value);
+    // displays the searched for data 
     setDisplayData(EmployeeSearch(search));
+    
+    // sets all search inputs to lowercase
+//   setState(
+//     {value: input.value.toLowerCase()},
+//     () => input.setSelectionRange(start, end)
+//   );
     
 };
 
 function EmployeeSearch(search){
-// declare return array that empty that will return the results of the search
+// sets employee data to search data after it is filtered
 let searchData = []
 
-searchData = EmployeeData.filter(employee => {employee.cell.contains(search)}) 
-    // filter through the employeedata then compare input from the search input
+searchData = EmployeeData.filter(employee =>
+    employee.name.first.includes(search))  
+    
+    return searchData
 
-return searchData
 }
+
+// users.sort(function(a, b){
+//     if(a.firstname < b.firstname) { return -1; }
+//     if(a.firstname > b.firstname) { return 1; }
+//     return 0;
+// })
+
 
 return (
     <div>
@@ -74,13 +80,7 @@ return (
                     />
                     {error}
                 <DataDisplay 
-                results={displaydata} 
-                // displaydata={displaydata}
-                // lastName={lastName} 
-                // firstName={firstName} 
-                // email={email} 
-                // dob={dob} 
-                // phone={phone}  
+                results={DisplayData} 
                 />
         </Container>
     </div>

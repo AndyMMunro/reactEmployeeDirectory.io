@@ -1,0 +1,11 @@
+th {
+  width: 20%;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+td {
+  width: 20%;
+}

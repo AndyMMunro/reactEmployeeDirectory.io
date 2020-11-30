@@ -11,6 +11,7 @@ function Home () {
     const [search, setSearch] = useState("");
     const [error, setError] = useState("");
     const [DisplayData, setDisplayData] = useState([]);
+    // const [sortByName, setSortByName] = useState([])
 
    useEffect(() => {
     //    if nothing in search parameter then populate all users
@@ -28,6 +29,7 @@ function Home () {
                 }
                 setEmployeeData(res.data.results);
                 setDisplayData(res.data.results)
+                // setSortByfirstName(res.data.results.name.first)
             })
             .catch (error => setError(error));
         }else{
@@ -43,12 +45,6 @@ const handleInputChange = event => {
     // displays the searched for data 
     setDisplayData(EmployeeSearch(search));
     
-    // sets all search inputs to lowercase
-//   setState(
-//     {value: input.value.toLowerCase()},
-//     () => input.setSelectionRange(start, end)
-//   );
-    
 };
 
 function EmployeeSearch(search){
@@ -56,18 +52,30 @@ function EmployeeSearch(search){
 let searchData = []
 
 searchData = EmployeeData.filter(employee =>
-    employee.name.first.includes(search))  
+    employee.name.first.toLowerCase().includes(search))  
     
-    return searchData
+    return searchData;
 
 }
+// const handleInputChange = event => {
+//     setSortByfirstName(event.target.value);
+// }
+// function sortByFirstName(props)
 
-// users.sort(function(a, b){
-//     if(a.firstname < b.firstname) { return -1; }
-//     if(a.firstname > b.firstname) { return 1; }
-//     return 0;
-// })
+//  let firstNames =[];
 
+//  firstNames = employee.name.first;
+ 
+//  sortedNames.sort((a, b) => {
+//      if(a.name < b.name) {
+//          return -1;
+//      }
+//      if (a.name > b.name) {
+//          return 1;
+//      }
+//      return 0;
+//  });
+   
 
 return (
     <div>

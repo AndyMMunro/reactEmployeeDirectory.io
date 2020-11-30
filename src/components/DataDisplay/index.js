@@ -3,14 +3,35 @@ import Moment from 'react-moment';
 import "./style.css";
 
 function DataDisplay(props) {
-  // console.log(props);
+
+    const [sortedNames, setSortedNames] = React.useState(null);
+    const {firstName} = props.results;
+    let sortedFirstNames = [firstName];
+  // console.log(sortedNames);
+    if (sortedNames !== null) {
+        sortedNames.sort ((a, b) => {
+        if (a[sortedFirstNames.key] < b[sortedFirstNames.key]){
+          return 1;
+        }
+        if (a[sortedFirstNames.key] > b[sortedFirstNames.key]){
+          return -1;
+          }
+          return 0;
+      
+      });
+    };
+  
+
+
   return (
     <div>
       <table className="emp-list" >
             <thead>
                 <tr>
                     <th scope="col">Image</th>
-                    <th scope="col">Name</th>
+                    <th scope="col" onClick={() => setSortedNames('name')}>
+                      Name
+                    </th>
                     <th scope="col">Phone</th>
                     <th scope="col">Email</th>
                     <th scope="col">DOB</th>
@@ -42,8 +63,6 @@ function DataDisplay(props) {
     );
   }
   
-
-
 
 export default DataDisplay;
 

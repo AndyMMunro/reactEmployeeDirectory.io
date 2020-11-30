@@ -5,21 +5,21 @@ import "./style.css";
 
 function DataDisplay(props) {
 
-    const [sortedNames, setSortedNames] = useState(null);
-    const firstName = props.results;
-    let sortedFirstNames = [firstName];
-  console.log("this is what you want" sortedFirstNames);
-    if (sortedNames !== null) {
-        sortedNames.sort((a, b) => {
-        if (a[sortedFirstNames] < b[sortedFirstNames]){
-          return 1;
-        }
-        if (a[sortedFirstNames] > b[sortedFirstNames]){
-          return -1;
-        }
-          return 0;
-      });
-    };
+  //   const [sortedNames, setSortedNames] = useState(null);
+  //   const firstName = props.results;
+  //   let sortedFirstNames = [firstName];
+  // console.log("this is what you want", sortedFirstNames);
+  //   if (sortedNames !== null) {
+  //       sortedNames.sort((a, b) => {
+  //       if (a[sortedFirstNames] < b[sortedFirstNames]){
+  //         return 1;
+  //       }
+  //       if (a[sortedFirstNames] > b[sortedFirstNames]){
+  //         return -1;
+  //       }
+  //         return 0;
+  //     });
+  //   };
   
 
 
@@ -29,7 +29,7 @@ function DataDisplay(props) {
             <thead>
                 <tr>
                     <th scope="col">Image</th>
-                    <th scope="col" onClick={() => setSortedNames('name')}>
+                    <th scope="col">
                       Name
                     </th>
                     <th scope="col">Phone</th>

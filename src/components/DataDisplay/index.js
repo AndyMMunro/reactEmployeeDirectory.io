@@ -1,24 +1,23 @@
-import React from "react";
+import { useEffect, useState } from "react";
+
 import Moment from 'react-moment';
 import "./style.css";
 
 function DataDisplay(props) {
-
-    const [sortedNames, setSortedNames] = React.useState(null);
-    const {firstName} = props.results;
-    let sortedFirstNames = [firstName];
-  // console.log(sortedNames);
-    if (sortedNames !== null) {
-        sortedNames.sort ((a, b) => {
-        if (a[sortedFirstNames.key] < b[sortedFirstNames.key]){
+    const [EmployeeData, setEmployeeData] = useState([])
+    // const [sortedNames, setSortedNames] = useState(null);
+    // const firstName = props.results;
+    // let sortedFirstNames = [firstName];
+  console.log("this is what you want",EmployeeData);
+    if (EmployeeData !== null) {
+        EmployeeData.name.first.sort((a, b) => {
+        if (a < b){
           return 1;
         }
-        if (a[sortedFirstNames.key] > b[sortedFirstNames.key]){
+        else {
           return -1;
-          }
-          return 0;
-      
-      });
+        }
+      })
     };
   
 
@@ -29,7 +28,7 @@ function DataDisplay(props) {
             <thead>
                 <tr>
                     <th scope="col">Image</th>
-                    <th scope="col" onClick={() => setSortedNames('name')}>
+                    <th scope="col" onClick={() => setEmployeeData('name')}>
                       Name
                     </th>
                     <th scope="col">Phone</th>

@@ -1,7 +1,6 @@
 {
-  "name": "employee_directory",
+  "name": "reactEmployeeDirectory.io",
   "version": "0.1.0",
-  // "homepage": "http://localhost:3000",
   "homepage": "https://AndyMMunro.github.io/reactEmployeeDirectory.io",
   "private": true,
   "dependencies": {

@@ -4,20 +4,21 @@ import Moment from 'react-moment';
 import "./style.css";
 
 function DataDisplay(props) {
-    const [EmployeeData, setEmployeeData] = useState([])
-    // const [sortedNames, setSortedNames] = useState(null);
-    // const firstName = props.results;
-    // let sortedFirstNames = [firstName];
-  console.log("this is what you want",EmployeeData);
-    if (EmployeeData !== null) {
-        EmployeeData.name.first.sort((a, b) => {
-        if (a < b){
+
+    const [sortedNames, setSortedNames] = useState(null);
+    const firstName = props.results;
+    let sortedFirstNames = [firstName];
+  console.log("this is what you want" sortedFirstNames);
+    if (sortedNames !== null) {
+        sortedNames.sort((a, b) => {
+        if (a[sortedFirstNames] < b[sortedFirstNames]){
           return 1;
         }
-        else {
+        if (a[sortedFirstNames] > b[sortedFirstNames]){
           return -1;
         }
-      })
+          return 0;
+      });
     };
   
 
@@ -28,7 +29,7 @@ function DataDisplay(props) {
             <thead>
                 <tr>
                     <th scope="col">Image</th>
-                    <th scope="col" onClick={() => setEmployeeData('name')}>
+                    <th scope="col" onClick={() => setSortedNames('name')}>
                       Name
                     </th>
                     <th scope="col">Phone</th>

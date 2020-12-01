@@ -1,10 +1,10 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import Container from "../components/Container";
 import DataDisplay from "../components/DataDisplay"
 import API from "../utils/API"
 import SearchForm from "../components/SearchForm";
-// import SearchResults from "../components/SearchResults"
-// import EmployeeContext from "../utils/EmployeeContext"
+
 
 function Home () {
     const [EmployeeData, setEmployeeData] = useState([]);
@@ -57,25 +57,6 @@ searchData = EmployeeData.filter(employee =>
     return searchData;
 
 }
-// const handleInputChange = event => {
-//     setSortByfirstName(event.target.value);
-// }
-// function sortByFirstName(props)
-
-//  let firstNames =[];
-
-//  firstNames = employee.name.first;
- 
-//  sortedNames.sort((a, b) => {
-//      if(a.name < b.name) {
-//          return -1;
-//      }
-//      if (a.name > b.name) {
-//          return 1;
-//      }
-//      return 0;
-//  });
-   
 
 return (
     <div>

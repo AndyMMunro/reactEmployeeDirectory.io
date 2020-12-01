@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 import Moment from 'react-moment';
 import "./style.css";
 
 function DataDisplay(props) {
+//  uesEffect (() => {
+   
 
+
+//  })
   //   const [sortedNames, setSortedNames] = useState(null);
   //   const firstName = props.results;
   //   let sortedFirstNames = [firstName];
@@ -39,7 +43,7 @@ function DataDisplay(props) {
             </thead>
             <tbody>
             {props.results.map((results, index) => (
-                <tr className="employee-data" >
+                <tr className="employee-data" key={results.id.value} >
                     <td className="emp-list-img" key={results.index}>
                       <img alt={results.title} className="img.fluid" src={results.picture.medium} />
                     </td>    
@@ -61,6 +65,7 @@ function DataDisplay(props) {
         </table>
     </div>
     );
+    
   }
   
 

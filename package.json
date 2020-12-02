@@ -1,6 +1,6 @@
 {
-  "name": "employee.io",
-  "homepage": "https://andymmunro.github.io/employee.io",
+  "name": "reactEmployeeDirectory.io",
+  "homepage": "https://andymmunro.github.io/reactEmployeeDirectory.io",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

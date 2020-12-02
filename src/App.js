@@ -5,7 +5,7 @@ import Wrapper from "./components/Wrapper"
 
 
 function App() {
-  console.log("hope this works");
+  // console.log("hope this works");
   return (
     <Router>
       <div>

@@ -1,31 +1,41 @@
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
-
+import API from "../../utils/API"
 import Moment from 'react-moment';
 import "./style.css";
 
 function DataDisplay(props) {
-//  uesEffect (() => {
-   
+//   const [sortedNames, setSortedNames] = useState([]);
+ 
+//   useEffect (() => {
+//     // let mounted = true;
+//      API.getUsers()
+//      .then(res => {
+       
+//          setSortedNames(res.data.results)  
+      
+//       console.log(setSortedNames);
+//     })
+//  },[])
 
-
-//  })
-  //   const [sortedNames, setSortedNames] = useState(null);
+ 
   //   const firstName = props.results;
+
   //   let sortedFirstNames = [firstName];
+
   // console.log("this is what you want", sortedFirstNames);
-  //   if (sortedNames !== null) {
-  //       sortedNames.sort((a, b) => {
-  //       if (a[sortedFirstNames] < b[sortedFirstNames]){
-  //         return 1;
-  //       }
-  //       if (a[sortedFirstNames] > b[sortedFirstNames]){
-  //         return -1;
-  //       }
-  //         return 0;
-  //     });
+    // if (sortedNames !== null) {
+    //     sortedNames.sort((a, b) => {
+    //     if (a[sortedFirstNames] < b[sortedFirstNames]){ props.results.name.first
+    //       return 1;  
+    //     }
+    //     if (a[sortedFirstNames] > b[sortedFirstNames]){
+    //       return -1;
+    //     }
+    //       return 0;
+    //   });
   //   };
-  
+
 
 
   return (
@@ -34,7 +44,7 @@ function DataDisplay(props) {
             <thead>
                 <tr>
                     <th scope="col">Image</th>
-                    <th scope="col">
+                    <th scope="col" onClick = {props.handleInputSort}>
                       Name
                     </th>
                     <th scope="col">Phone</th>

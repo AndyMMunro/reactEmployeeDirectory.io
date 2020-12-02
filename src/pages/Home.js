@@ -11,7 +11,6 @@ function Home () {
     const [search, setSearch] = useState("");
     const [error, setError] = useState("");
     const [DisplayData, setDisplayData] = useState([]);
-    // const [sortByName, setSortByName] = useState([])
 
    useEffect(() => {
     //    if nothing in search parameter then populate all users
@@ -57,6 +56,31 @@ searchData = EmployeeData.filter(employee =>
     return searchData;
 
 }
+let direction = "ascending" ;
+
+const handleInputSort = event => {
+
+    console.log("please sort me");
+
+    const temp = DisplayData.sort(sorter);
+    
+    setDisplayData([...temp]);
+    if(direction = "ascending") {
+        direction = "descending"
+    } else direction = "ascending"
+
+
+    console.log("sorted data", temp);
+  };
+
+  function sorter(a, b){
+
+    if(a.name.first < b.name.first)
+        return direction === "ascending" ? -1 : 1;
+
+    else if (a.name.first > b.name.first)
+        return direction === "ascending" ? 1 : -1;
+  }
 
 return (
     <div>
@@ -69,6 +93,7 @@ return (
                     />
                     {error}
                 <DataDisplay 
+                handleInputSort = {handleInputSort}
                 results={DisplayData} 
                 />
         </Container>

@@ -67,8 +67,10 @@ const handleInputSort = event => {
     setDisplayData([...temp]);
     if(direction = "ascending") {
         direction = "descending"
-    } else direction = "ascending"
-
+    } else if ( direction = "descending") {
+            direction = "ascending"
+    } 
+    
 
     console.log("sorted data", temp);
   };
@@ -82,6 +84,31 @@ const handleInputSort = event => {
         return direction === "ascending" ? 1 : -1;
   }
 
+//   const handleInputSortReverse = event => {
+
+//     console.log("please sort me");
+
+//     const temp = DisplayData.sort(sorterReverse);
+    
+//     setDisplayData([...temp]);
+//     if(direction = "descending") {
+//         direction = "ascending"
+//     } else if ( direction = "ascending") {
+//         direction = "descending"
+//     } 
+    
+
+//     console.log("sorted data", temp);
+//   };
+//   function sorterReverse(a, b){
+
+//     if(a.name.first > b.name.first)
+//         return direction === "ascending" ? 1 : -1;
+
+//     else if (a.name.first < b.name.first)
+//         return direction === "ascending" ? -1 : 1;
+//   }
+
 return (
     <div>
         Home
@@ -93,6 +120,7 @@ return (
                     />
                     {error}
                 <DataDisplay 
+                // handleInputSortReverse = {handleInputSortReverse}
                 handleInputSort = {handleInputSort}
                 results={DisplayData} 
                 />

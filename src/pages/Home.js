@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Container from "../components/Container";
-import DataDisplay from "../components/DataDisplay"
-import API from "../utils/API"
+import DataDisplay from "../components/DataDisplay";
+import API from "../utils/API";
 import SearchForm from "../components/SearchForm";
 
 
@@ -11,6 +11,8 @@ function Home () {
     const [search, setSearch] = useState("");
     const [error, setError] = useState("");
     const [DisplayData, setDisplayData] = useState([]);
+
+    // console.log(setEmployeeData, "testing emp data");
 
    useEffect(() => {
     //    if nothing in search parameter then populate all users
@@ -27,7 +29,7 @@ function Home () {
                     throw new Error(res.data.message);
                 }
                 setEmployeeData(res.data.results);
-                setDisplayData(res.data.results)
+                setDisplayData(res.data.results);
                 // setSortByfirstName(res.data.results.name.first)
             })
             .catch (error => setError(error));

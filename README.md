@@ -16,10 +16,10 @@
   Installation:
   Click on the link below and you will be directed to the live working version.
   
-  gitHub: https://github.com/reactEmployeeDirectory.io
+  gitHub:https://andymmunro.github.io/reactEmployeeDirectory.io/
+ 
   
-  Live link https://andymmunro.github.io/reactEmployeeDirectory.io/
-
+  Live link:https://github.com/reactEmployeeDirectory.io 
 
   Usage:
    An employee or manager would benefit greatly from being able to view non-sensitive data about other employees. It would be particularly helpful to be able to filter employees by name.

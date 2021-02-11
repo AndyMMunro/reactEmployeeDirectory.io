@@ -16,7 +16,7 @@
   Installation:
   Click on the link below and you will be directed to the live working version.
   
-  gitHub:https://andymmunro.github.io/reactEmployeeDirectory.io/
+  gitHub:https://github.com/AndyMMunro/reactEmployeeDirectory.io
  
   
   Live link:https://andymmunro.github.io/reactEmployeeDirectory.io/
